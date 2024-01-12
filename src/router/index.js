@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
+import EditCategoryView from '../views/EditCategoryView.vue'
+import AddCategoryView from '../views/AddCategoryView.vue'
 import store from '../store';
 const routes = [
   {
@@ -18,7 +20,14 @@ const routes = [
   {
     path: '/edit-category/:id',
     name: 'edit_category',
+    props:true,
     component: EditCategoryView
+  },
+  {
+    path: '/add-category/:id',
+    name: 'add_category',
+    props:true,
+    component: AddCategoryView
   }
 ]
 
