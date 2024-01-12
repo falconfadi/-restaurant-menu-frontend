@@ -4,8 +4,9 @@ import LoginView from '../views/LoginView.vue'
 import store from '../store';
 const routes = [
   {
-    path: '/',
+    path: '/:id?',
     name: 'home',
+    props:true,
     component: HomeView,
     meta: { requiresAuth: true }
   },
@@ -13,6 +14,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginView
+  },
+  {
+    path: '/edit-category/:id',
+    name: 'edit_category',
+    component: EditCategoryView
   }
 ]
 

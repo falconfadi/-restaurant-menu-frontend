@@ -5,7 +5,21 @@
   </nav>
   <router-view/>
 </template>
+<script>
+import axios from "axios";
+export default {
+  name: 'App',
 
+  beforeMount() {
+
+    if (this.$store.state.authToken)
+      axios.defaults.headers.common["Authorization"] = `Bearer ${this.$store.state.authToken}`;
+    else
+      axios.defaults.headers.common['Authorization'] = ``;
+  },
+
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
