@@ -4,7 +4,8 @@ export default createStore({
   state: {
     app_url: process.env.VUE_APP_URL,
     authToken: localStorage.getItem("auth_token") || null,
-    categories : []
+    categories : [],
+    items: []
   },
   getters: {
   },
@@ -22,6 +23,9 @@ export default createStore({
     },
     setCategories(state, value) {
       state.categories = value;
+    },
+    setItems(state, value){
+      state.items = value;
     }
   },
   actions: {
@@ -31,6 +35,16 @@ export default createStore({
           .then((response) => {
             console.log(response.data.data)
             commit('setCategories', response.data.data);
+          }).catch((err) => {
+        console.log(err)
+      })
+    },
+    getItemsByUser({state, commit }) {
+      axios
+          .get(state.app_url + 'items')
+          .then((response) => {
+            console.log(response.data.data)
+            commit('setItems', response.data.data);
           }).catch((err) => {
         console.log(err)
       })

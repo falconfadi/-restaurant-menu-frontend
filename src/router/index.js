@@ -3,6 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import EditCategoryView from '../views/EditCategoryView.vue'
 import AddCategoryView from '../views/AddCategoryView.vue'
+import EditItemView from '../views/EditItemView.vue'
+import AddItemView from '../views/AddItemView.vue'
 import store from '../store';
 const routes = [
   {
@@ -28,6 +30,12 @@ const routes = [
     name: 'add_category',
     props:true,
     component: AddCategoryView
+  },
+  {
+    path: '/add-item/:id',
+    name: 'add_item',
+    props:true,
+    component: AddItemView
   }
 ]
 

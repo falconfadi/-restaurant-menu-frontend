@@ -48,4 +48,7 @@ nav a.router-link-exact-active {
 .float-left{
   float:left !important;
 }
+.float-right{
+  float:right !important;
+}
 </style>
