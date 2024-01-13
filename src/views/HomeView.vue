@@ -2,10 +2,10 @@
   <div class="home">
   <h1 class="text-center">{{ category?.title }}</h1>
 
-      <div v-if="!!category && category.level < 4 && (!items || !items.length)" class="">
-        <router-link :to="'add-category/'+category?.id" class="btn btn-info float-right mb-2">Add Category</router-link>
+      <div v-if="!!category && category.level < 4 && (!items || !items.length)" class="mt-4 mb-3 ">
+        <router-link :to="'add-category/'+category?.id" class="btn btn-info float-right mb-2 ml-4">Add Category</router-link>
       </div>
-      <div  v-if="!!subCategories && subCategories.length">
+      <div  v-if="!!subCategories && subCategories.length" class="mt-3">
       <h2 >CATEGORIES</h2>
       <table  class="table table-bordered mb-3">
         <tr>
@@ -32,7 +32,7 @@
       </table>
     </div>
 
-    <div v-if="!!subCategories && !subCategories.length" class="mt-4">
+    <div v-if="!!subCategories && !subCategories.length" class="mt-4 mb-3">
     <router-link :to="'add-item/'+category?.id" class="btn btn-info float-right mb-2">Add Item</router-link>
     </div>
     <div v-if="!!items && items.length">
