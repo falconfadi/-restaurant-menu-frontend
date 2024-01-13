@@ -12,7 +12,7 @@
           <input type="text" placeholder="username" v-model="email" />
           <input type="password" placeholder="password" v-model="password" />
           <button>login</button>
-          <p class="message">Not registered? <a href="#">Create an account</a></p>
+
         </form>
       </div>
     </div>

@@ -54,6 +54,7 @@
       </table>
     </div>
 
+
   </div>
 </template>
 
@@ -61,6 +62,7 @@
 // @ is an alias to /src
 
 import axios from "axios";
+import $ from 'jquery';
 
 export default {
   name: 'HomeView',
@@ -83,16 +85,30 @@ export default {
 
   },
   methods:{
-    deleteItem(id){
-      axios
-          .delete(this.$store.state.app_url+"items/"+id)
-          .then((response) => {
-            this.$store.dispatch('getCategoriesByUser');
-          }).catch((err) => {
-        console.log(err)
-      })
+    deleteCategory(id) {
+      if (confirm("Do you really want to delete CATEGORY?")) {
+        axios
+            .delete(this.$store.state.app_url + "categories/" + id)
+            .then((response) => {
+              this.$store.dispatch('getCategoriesByUser');
+            }).catch((err) => {
+          console.log(err)
+        })
+      }
+    },
+    deleteItem(id) {
+      if (confirm("Do you really want to delete ITEM?")) {
+        axios
+            .delete(this.$store.state.app_url + "items/" + id)
+            .then((response) => {
+              this.$store.dispatch('getCategoriesByUser');
+            }).catch((err) => {
+          console.log(err)
+        })
+      }
     }
   }
 }
+
 </script>
 
