@@ -7,6 +7,10 @@
         <input type="text" class="form-control" id="title" v-model="title" >
       </div>
       <div class="form-group">
+        <label for="price">Price</label>
+        <input type="text" class="form-control " id="price" v-model="price" >
+      </div>
+      <div class="form-group">
         <label for="discount">Discount</label>
         <input type="text" class="form-control" id="discount" v-model="discount" >
       </div>
@@ -29,6 +33,7 @@ export default {
   data() {
     return {
       title: '',
+      price:0,
       category_id:null,
       discount: null
     }
@@ -38,9 +43,10 @@ export default {
         .get(this.$store.state.app_url+"items/"+this.id)
         .then((response) => {
          let item=response.data.data;
-          this.title=category.title;
-          this.discount=category.discount;
-          this.category_id=category.category_id;
+          this.title=item.title;
+          this.discount=item.discount;
+          this.price=item.price;
+          this.category_id=item.category_id;
         }).catch((err) => {
       console.log(err)
     })
@@ -48,7 +54,7 @@ export default {
   methods:{
     editItem(){
       axios
-          .put(this.$store.state.app_url+"items/"+this.id,{"title":this.title,"discount":this.discount})
+          .put(this.$store.state.app_url+"items/"+this.id,{"title":this.title,"content":this.content,"discount":this.discount,"price":this.price})
           .then((response) => {
             this.$router.push("/"+this.category_id);
           }).catch((err) => {

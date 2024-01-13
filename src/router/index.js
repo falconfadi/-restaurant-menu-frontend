@@ -36,6 +36,12 @@ const routes = [
     name: 'add_item',
     props:true,
     component: AddItemView
+  },
+  {
+    path: '/edit-item/:id',
+    name: 'edit_item',
+    props:true,
+    component: EditItemView
   }
 ]
 

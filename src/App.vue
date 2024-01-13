@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto float-right">
             <li class="nav-item active">
-              <router-link :to="'/'" class="nav-link">Home</router-link>
+              <router-link :to="'/'" class="nav-link ">Home</router-link>
             </li>
             <li class="nav-item">
               <button @click="logout" class="nav-link">Logout</button>

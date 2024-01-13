@@ -6,7 +6,10 @@
         <label for="title">Title</label>
         <input type="text" class="form-control" id="title" v-model="title" >
       </div>
-
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="text" class="form-control " id="price" v-model="price" >
+      </div>
       <div class="form-group">
         <label for="discount">Discount</label>
         <input type="text" class="form-control " id="discount" v-model="discount" >
@@ -31,14 +34,14 @@ export default {
   data() {
     return {
       title: '',
-      content: '',
+      price: 0,
       discount: null
     }
   },
   methods:{
     addItem(){
       axios
-          .post(this.$store.state.app_url+"items",{"category_id":this.id,"title":this.title,"discount":this.discount})
+          .post(this.$store.state.app_url+"items",{"category_id":this.id,"title":this.title,"discount":this.discount,"price":this.price})
           .then((response) => {
             this.$router.push("/"+this.id);
           }).catch((err) => {

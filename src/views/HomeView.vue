@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-  <h1 class="text-center">{{ category?.title }}</h1>
+  <h1 class="text-center mt-2">{{ category?.title }}</h1>
 
       <div v-if="!!category && category.level < 4 && (!items || !items.length)" class="mt-4 mb-3 ">
         <router-link :to="'add-category/'+category?.id" class="btn btn-info float-right mb-2 ml-4">Add Category</router-link>
@@ -47,8 +47,8 @@
           <td>{{item.title}}</td>
           <td>{{item.discount}}</td>
           <td>
-            <router-link :to="'edit-category/' + item.id" class="btn-success btn m-1">Edit</router-link>
-            <button @click="deleteCategory(item.id)" class="btn-danger btn m-1">delete</button>
+            <router-link :to="'edit-item/' + item.id" class="btn-success btn m-1">Edit</router-link>
+            <button @click="deleteItem(item.id)" class="btn-danger btn m-1">delete</button>
           </td>
         </tr>
       </table>
@@ -83,9 +83,9 @@ export default {
 
   },
   methods:{
-    deleteCategory(id){
+    deleteItem(id){
       axios
-          .delete(this.$store.state.app_url+"categories/"+id)
+          .delete(this.$store.state.app_url+"items/"+id)
           .then((response) => {
             this.$store.dispatch('getCategoriesByUser');
           }).catch((err) => {
